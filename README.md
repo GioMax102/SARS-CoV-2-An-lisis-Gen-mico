@@ -19,7 +19,6 @@ Programa que analiza las secuencias genómicas de Wuhan (2019) y Texas (2020), l
 
 ## Requisitos
 - Python 3.x
-- Librerías estándar (o especificar dependencias en `requirements.txt`)
 
 ## Uso
 ```bash
@@ -51,4 +50,7 @@ python src/main.py
 - SICT0101, SICT0401, STC0101, STC0102.
 
 ## Autores
-Equipo de desarrollo.
+- Andrés Humberto Treviño Garza
+- Juan Antonio Rodríguez Reyna
+- Juan Esteban Jaramillo Lucero
+- Mario Giovanni González López
