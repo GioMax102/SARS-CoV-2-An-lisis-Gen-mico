@@ -457,7 +457,7 @@ def mostrar_mutaciones(resultados):
 
 
 # ===============================================================
-# PROGRAMA PRINCIPAL
+# MAIN
 # Lee los archivos y corre los 4 puntos en orden.
 # ===============================================================
 
