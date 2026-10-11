@@ -11,34 +11,51 @@ Programa que analiza las secuencias genómicas de Wuhan (2019) y Texas (2020), l
 - Identificar secciones del genoma que producen cada proteína y sus codones.
 - Comparar genomas de Wuhan 2019 vs. Texas 2020: diferencias, codones y aminoácidos afectados.
 
+## Algoritmos
+| Punto | Algoritmo | Complejidad |
+|-------|-----------|-------------|
+| 1. Búsqueda de genes | KMP | O(n + m) |
+| 2. Palíndromo más largo | Manacher | O(n) |
+| 3. Identificación de proteínas | Traducción en 3 marcos de lectura + KMP | O(n + m) por marco |
+| 4. Comparación de genomas | Comparación posición por posición | O(n) |
+
+Todos los algoritmos están implementados desde cero, sin librerías que los resuelvan.
+
 ## Archivos de entrada
+Se leen automáticamente de la carpeta `data/`:
 - `SARS-COV-2-MN908947.3.txt`
 - `SARS-COV-2-MT106054.1.txt`
 - `gen-M.txt`, `gen-ORF1AB.txt`, `gen-S.txt`
 - `seq-proteins.txt`
 
 ## Requisitos
-- Python 3.x
+- Python 3.x (no requiere librerías externas)
 
 ## Uso
+Desde la carpeta del proyecto:
 ```bash
-python src/main.py
+python3 act-integradora1.py
 ```
 
 ## Salidas
-- Índices y primeros caracteres de cada gen.
-- Longitud del palíndromo más largo por gen.
-- Proteínas, índices, primeros aminoácidos y codones.
-- Diferencias entre genomas, codones y aminoácidos.
+En consola:
+- Índices y primeros 12 caracteres de cada gen.
+- Longitud y secuencia del palíndromo más largo por gen.
+- Proteínas, índices, primeros 4 aminoácidos y codones.
+- Diferencias entre genomas, codones y aminoácidos afectados.
 - Cadena más larga sin diferencias.
+
+Archivos que genera el programa en la misma carpeta:
+- `palindromos.txt`: palíndromo más largo de cada gen.
+- `diferencias.txt`: diferencias entre Wuhan y Texas (índice, base Wuhan, base Texas).
 
 ## Estructura del repositorio
 ```
-├── src/          # Código fuente
-├── data/         # Secuencias genómicas
-├── output/       # Resultados generados
-├── docs/         # Reporte
-└── video/        # Presentación
+├── act-integradora1.py   # Código fuente
+├── data/                 # Secuencias genómicas y proteínas
+├── palindromos.txt       # Generado al ejecutar
+├── diferencias.txt       # Generado al ejecutar
+└── README.md
 ```
 
 ## Entregables
