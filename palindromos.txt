@@ -1,15 +1,15 @@
 Gen M
-Longitud: 11
-Inicio dentro del gen: 493
-Palindromo: CTAAAGAAATC
+Longitud: 10
+Inicio dentro del gen: 310
+Palindromo: CGCGTACGCG
 
 Gen S
-Longitud: 15
-Inicio dentro del gen: 570
-Palindromo: GAATTTGTGTTTAAG
+Longitud: 16
+Inicio dentro del gen: 1338
+Palindromo: GGTAATTATAATTACC
 
 Gen ORF1AB
 Longitud: 20
-Inicio dentro del gen: 9711
-Palindromo: CTCAATGACTTCAGTAACTC
+Inicio dentro del gen: 5479
+Palindromo: ACACTGGTAATTACCAGTGT
 

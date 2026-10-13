@@ -101,14 +101,15 @@ def mostrar_punto1(wuhan, genes):
         for p in posiciones:
             print(f"  Inicio: {p}  Fin: {p + len(gen) - 1}")
 
-
 # ===============================================================
-# PUNTO 2 - PALINDROMO MAS LARGO
-# Encuentra el palindromo mas largo de cada gen con Manacher, O(n).
-# Muestra su longitud y lo guarda en palindromos.txt.
+# PUNTO 2 - PALINDROMO GENÉTICO MAS LARGO
+# Encuentra el palíndromo genético más largo de cada gen con Manacher.
+# Complejidad: O(n) tiempo, donde n es la longitud de la cadena del gen.
 # ===============================================================
 
-def manacher(cadena):
+def manacher_genetico(cadena):
+    complemento = {'A': 'T', 'T': 'A', 'C': 'G', 'G': 'C'}
+    
     texto = "@$" + "$".join(cadena) + "$#"
     e = len(texto)
 
@@ -116,14 +117,24 @@ def manacher(cadena):
     centro = 0
     limite = 0
 
+    def coinciden(izq, der):
+        if izq == '$' and der == '$':
+            return True
+        if izq in complemento and der in complemento:
+            return complemento[izq] == der
+        return False
+
     for i in range(1, e - 1):
+        if texto[i] != '$':
+            continue
+
         if i < limite:
             simetrica = 2 * centro - i
             P[i] = min(limite - i, P[simetrica])
 
         gap = P[i] + 1
 
-        while texto[i - gap] == texto[i + gap]:
+        while coinciden(texto[i - gap], texto[i + gap]):
             P[i] += 1
             gap += 1
 
@@ -141,12 +152,12 @@ def manacher(cadena):
 
 
 def mostrar_punto2(genes):
-    print("\n--- PUNTO 2: PALINDROMOS ---")
+    print("\n--- PUNTO 2: PALINDROMOS GENÉTICOS ---")
+    BASE = os.path.dirname(os.path.abspath(__file__)) # Asegurar ruta base
 
-    with open(os.path.join(BASE, "palindromos.txt"), "w",
-              encoding="utf-8") as archivo:
+    with open(os.path.join(BASE, "palindromos.txt"), "w", encoding="utf-8") as archivo:
         for nombre, gen in genes.items():
-            palindromo, longitud, ini = manacher(gen)
+            palindromo, longitud, ini = manacher_genetico(gen)
 
             print(f"\nGen {nombre}")
             print(f"  Longitud: {longitud}")
